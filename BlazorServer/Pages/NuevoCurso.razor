@@ -1,0 +1,112 @@
+﻿@page "/nuevoCurso"
+@using BlazorServer.Servicios;
+@using ModeloClasesAlumnos;
+@inject IServicioCurso ServicioCurso
+@inject NavigationManager navigationManager
+
+<h3>Nuevo Curso</h3>
+<hr />
+
+<EditForm Model="@curso" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <!--<ValidationSummary />-->
+
+    <div class="form-group row mb-5">
+        <label for="NombreCurso" class="col-sm-2 col-form-label">Curso: </label>
+        <div class="col-sm-10">
+            <InputText id="NombreCurso" class="form-control" placeholder="Nombre del Curso" @bind-Value="curso.NombreCurso" />
+            <ValidationMessage For="@( () => curso.NombreCurso)" />
+        </div>
+    </div>
+
+</EditForm>
+
+<EditForm Model="@precio" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <!-- <ValidationSummary />-->
+
+    <div class="form-group row mb-5">
+        <label for="Coste" class="col-sm-2 col-form-label">Precio: </label>
+        <div class="col-sm-10">
+            <InputNumber id="Coste" ParsingErrorMessage="Debe introducir un coste" class="form-control" placeHolder="Precio del Curso" 
+            @bind-Value="precio.Coste" />
+            <ValidationMessage For="@( () => precio.Coste)" />
+        </div>
+    </div>
+
+    <div class="form-group row mb-5">
+        <label for="FechaInicio" class="col-sm-2 col-form-label">Fecha Inicio: </label>
+        <div class="col-sm-10">
+            <InputDate id="FechaInicio" ParsingErrorMessage="Debe seleccionar una fecha" class="form-control" placeHolder="Fecha Inicio Precio"
+                         @bind-Value="precio.FechaInicio" />
+            <ValidationMessage For="@( () => precio.FechaInicio)" />
+        </div>
+    </div>
+
+    <div class="form-group row mb-5">
+        <label for="FechaFin" class="col-sm-2 col-form-label">Fecha Fin: </label>
+        <div class="col-sm-10">
+            <InputDate id="FechaFin" ParsingErrorMessage="Debe seleccionar una fecha" class="form-control" placeHolder="Fecha Fin Precio"
+                       @bind-Value="precio.FechaFin" />
+            <ValidationMessage For="@( () => precio.FechaFin)" />
+        </div>
+    </div>
+</EditForm>
+
+
+
+
+    <div class="row content mb-5">
+        <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Guardar" @onclick="Guardar" /></div>
+        <div class="col-md-2">
+            <input type="button" value="Cancelar" class="btn btn-danger" @onclick="Cancelar" />
+        </div>
+    </div>
+
+@code
+{
+    Curso curso = new Curso();
+    Precio precio = new Precio();
+
+    public void HandleValidSubmit()
+    {
+        Console.WriteLine("OnValidSubmit");
+    }
+
+    protected async Task Guardar()
+    {
+        try
+        {
+            if (curso.NombreCurso!=String.Empty &&
+                precio.Coste>=0 && precio.FechaInicio!=null &&
+                precio.FechaFin!=null)
+            {
+                curso.ListaPrecios = new List<Precio>();
+                curso.ListaPrecios.Add(precio);
+                await ServicioCurso.AltaCurso(curso);
+                navigationManager.NavigateTo("/ListaCursos");
+            }
+        }
+        catch(Exception ex)
+        {
+            // Guardamos excepcion en log y mostramos por pantalla
+            throw new Exception(ex.Message);
+        }
+
+    }
+
+    protected void Cancelar()
+    {
+        navigationManager.NavigateTo("/ListaCursos");
+    }
+
+    protected override void OnInitialized()
+    {
+        curso.NombreCurso = "Nuevo Curso";
+        precio.Coste = 19.99;
+        precio.FechaInicio = DateTime.Now;
+        precio.FechaFin = DateTime.Now.AddMonths(1);
+    }
+
+
+}

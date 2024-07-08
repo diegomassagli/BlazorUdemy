@@ -1,0 +1,143 @@
+﻿@page "/ModificarAlumno/{id:int}"
+@using BlazorServer.Servicios;
+@using ModeloClasesAlumnos;
+@inject IServicioAlumnos ServicioAlumnos
+@inject NavigationManager navigationManager
+
+
+
+<h3>ModificarAlumno</h3>
+<hr />
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+
+        <div class="card">
+            <div class="card-header">
+                <h1>@alumno.Nombre</h1>
+            </div>
+            <div class="card-body text-center">
+                <img class="card-img-top" src="@alumno.Foto" />
+            </div>
+        </div>
+
+        <EditForm Model="@alumno" OnValidSubmit="HandleValidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="form-group row mb-5">
+                <label for="Nombre" class="col-sm-2 col-form-label">Nombre</label>
+                <div class="col-sm-10">
+                    <InputText id="Nombre" class="form-control" placeholder="Nombre del Alumno" @bind-Value="alumno.Nombre" />
+                    <ValidationMessage For="@( () => alumno.Nombre)" />
+                </div>
+            </div>
+
+            <div class="form-group row mb-5">
+                <label for="Email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <InputText id="Email" class="form-control" placeholder="Email del Alumno" @bind-Value="alumno.Email" />
+                    <ValidationMessage For="@( () => alumno.Email)" />
+                </div>
+            </div>
+
+            <div class="form-group row mb-5">
+                <label for="Foto" class="col-sm-2 col-form-label">Foto</label>
+                <div class="col-sm-10">
+                    <BlazorInputFile.InputFile OnChange="HandleFileSelected" @bind-Value="alumno.Foto" />
+                    <ValidationMessage For="@( () => alumno.Foto)" />
+                    @if (fichero != null)
+                    {
+                        <p><strong>Fichero seleccionado: @fichero.Name</strong></p>
+                    }
+                    else
+                    {
+                        <p><strong>Fichero actual: @alumno.Foto</strong></p>
+                    }
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="Email" class="col-sm-4 col-form-label">Alumno dado de baja: @alumno.FechaBaja</label>
+            </div>
+
+            <div class="row content mb-5">
+                <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Guardar" @onclick="Guardar" /></div>
+                <div class="col-md-2">
+                    <input type="button" value="Cancelar" class="btn btn-danger" @onclick="Cancelar" />
+                </div>
+            </div>
+
+        </EditForm>
+
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public int id { get; set; }   // indicamos que vamos a recibir un parametro "id" tal como esta indicado en @page
+
+    Alumno alumno = new Alumno();
+    IFileListEntry fichero;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (id > 0)
+        {
+            alumno = await ServicioAlumnos.ObtenerAlumno(id);  // si me pasaron un "id" cargo la informacion al comienzo
+        }
+    }
+
+    public void HandleValidSubmit()
+    {
+        Console.WriteLine("OnValidSubmit");
+    }
+
+    public void HandleFileSelected(IFileListEntry[] ficheros)
+    {
+        fichero = ficheros[0];
+        string extension = Path.GetExtension(fichero.Name);
+        if (extension != ".jpg")
+            fichero = null;
+    }
+
+    protected async Task Guardar()
+    {
+        try
+        {
+            if (alumno.Nombre != null && alumno.Email != null)
+            {
+                // Para el caso que no se seleccione ninguna foto
+                if (fichero != null && fichero.Data != null)
+                {
+                    var ms = new MemoryStream();
+                    await fichero.Data.CopyToAsync(ms);
+                    string nombreFichero = "images/" + Guid.NewGuid() + ".jpg";
+                    using (FileStream file = new FileStream("wwwroot/" + nombreFichero, FileMode.Create, FileAccess.Write))
+                        ms.WriteTo(file);
+
+                    alumno.Foto = nombreFichero;
+                }
+
+                alumno = (await ServicioAlumnos.ModificarAlumno(alumno.Id, alumno));
+                navigationManager.NavigateTo("/listaAlumnos");
+            }
+        }
+        catch(Exception ex)
+        {
+            //Guardaremos excepcion en log
+            throw new Exception(ex.Message);
+        }
+    }
+
+
+    protected void Cancelar()
+    {
+        navigationManager.NavigateTo("/listaAlumnos");
+    }
+
+
+
+
+
+}

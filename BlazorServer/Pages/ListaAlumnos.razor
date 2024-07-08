@@ -1,0 +1,59 @@
+﻿@page "/listaAlumnos"
+@inherits ListaAlumnosBase
+
+<h3>ListaAlumnos</h3>
+
+<div class="form-group row">
+    <div class="col-sm-10">
+        <a href="/NuevoAlumno" class="btn btn-primary m-1">Nuevo Alumno</a>
+    </div>
+</div>
+
+@if (Alumnos == null)
+{
+    <div class="spinner"></div>
+}
+else
+{
+    <div class="row">
+        @foreach (var alumno in Alumnos)
+        {
+            var isBaja = alumno.FechaBaja != null;
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card" style="min-height:26rem;">
+                    <div class="card-header @(isBaja ? "card-baja" : "")">
+                        <h3>@alumno.Nombre</h3>
+                        <img class="card-img-top imageThumbnail" src="@alumno.Foto" />
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="@($"ListaCursosAlumno/{alumno.Id}")" class="btn btn-primary m-1">Cursos</a>
+                        <a href="@($"DetalleAlumno/{alumno.Id}")" class="btn btn-primary m-1">Ver</a>
+                        <a href="@($"ModificarAlumno/{alumno.Id}")" class="btn btn-primary m-1">Editar</a>
+                        <button class="btn btn-danger m-1" @onclick="( ()=> Borrar(alumno.Id, alumno.Nombre))" style="@(isBaja ? "display:none;":"")">Borrar</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="modal @(MostrarPopPup ? "mostrarPopPup" : "ocultarPopPup")" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-warning">
+                    <h3 class="modal-title">Baja Alumno @(nombreAlumnoBorrar)</h3>
+                    <button type="button" class="close" @onclick="CerrarPop">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+
+                <div class="modal-body alert-danger">
+                    <strong>Va a dar de baja a este alumno. Seguro ?</strong>
+                    <br />
+                    <button type="button" class="btn btn-danger" @onclick="( ()=> DarDeBaja(idAlumnoBorrar))">Dar de Baja</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+

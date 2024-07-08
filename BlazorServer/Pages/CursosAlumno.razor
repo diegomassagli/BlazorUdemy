@@ -1,0 +1,72 @@
+﻿@page "/ListaCursosAlumno/{id:int}"
+@using BlazorServer.Servicios;
+@using ModeloClasesAlumnos;
+@inject IServicioAlumnos ServicioAlumnos
+@inject NavigationManager navigationManager
+
+<h3>Listado Cursos</h3>
+
+<div class="form-group row">
+    <div class="col-sm-10">
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <a href="@($"InscribirAlumno/{id}")" class="btn btn-primary m-1">Inscribir alumno en curso</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (alumno == null)
+{
+    <div class="spinner"></div>
+}
+else if (alumno.ListaCursos==null)
+{
+    <p class="text-danger">Este alumno no esta inscripto en ningun curso</p>
+}
+else
+{ 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Nombre curso</th>
+                <th>Precio</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Curso c in alumno.ListaCursos)
+            {
+                @foreach(Precio p in c.ListaPrecios)
+                {
+                    <tr>
+                        <td>@alumno.Nombre</td>
+                        <td>@alumno.Email</td>
+                        <td>@c.NombreCurso</td>
+                        <td>@p.Coste</td>
+                        <td>@(p.FechaInicio.ToString("dd/MM/yyyy"))</td>
+                        <td>@(p.FechaFin.ToString("dd/MM/yyyy"))</td>
+                    </tr>
+                }            
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    private Alumno alumno;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (id>0)
+        {
+            alumno = await ServicioAlumnos.CursosInscriptosAlumno(id);
+        }
+    }
+}

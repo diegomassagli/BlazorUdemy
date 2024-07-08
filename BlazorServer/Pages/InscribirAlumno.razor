@@ -1,0 +1,84 @@
+﻿@page "/InscribirAlumno/{id:int}"
+@using BlazorServer.Servicios;
+@using ModeloClasesAlumnos;
+@inject IServicioAlumnos ServicioAlumnos
+@inject IServicioCurso ServicioCurso
+@inject NavigationManager navigationManager
+
+<h1>Inscribir Alumno</h1>
+
+@if (listaCursos == null)
+{
+    <div class="spinner"></div>
+}
+else if (alumno.FechaBaja != null)
+{
+    <p class="text-danger">Este Alumno esta dado de baja</p>
+}
+else if (listaCursos.Count == 0)
+{
+    <p class="text-danger">No hay cursos disponibles</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre Curso</th>
+                <th>Coste</th>
+                <th>F.Inicio Precio</th>
+                <th>F.Fin Precio</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Curso c in listaCursos)
+            {
+                @foreach (Precio p in c.ListaPrecios)
+                {
+                    <tr>
+                        <td>@c.NombreCurso</td>
+                        <td>@p.Coste</td>
+                        <td>@(p.FechaInicio.ToString("dd/MM/yyyy"))</td>
+                        <td>@(p.FechaFin.ToString("dd/MM/yyyy"))</td>
+                        @if(DateTime.Now >= p.FechaInicio && DateTime.Now <=p.FechaFin)
+                        {                            
+                            <td><input type="submit" class="btn btn-primary" value="Inscribir" @onclick="( ()=> Inscribir(c.Id, p.Id))"/></td>
+                        }
+                    </tr>                    
+                }
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    [Parameter]
+    public int id { get; set; }   // aca recogemos el parametro de entrada
+
+    public List<Curso> listaCursos { get; set; } = new List<Curso>();  // inicializamos una variable lista para obtener los cursos llegado el momento
+    Alumno alumno = new Alumno();
+
+    protected override async Task OnInitializedAsync()
+    {
+        listaCursos = (await ServicioCurso.ObtenerCursos(id)).ToList();
+        alumno = (await ServicioAlumnos.ObtenerAlumno(id));  // ahora tambien obtengo los datos del alumno para ver si esta dado de baja
+    }
+
+
+    protected async Task Inscribir(int idCurso, int idPrecio)
+    {
+        try
+        {
+            alumno = (await ServicioAlumnos.CursosInscribirAlumno(alumno, idCurso, idPrecio));
+            navigationManager.NavigateTo("/listaCursosAlumno/" + id);
+        }
+        catch (Exception ex)
+        {
+            //Guardaremos excepcion en log y mostrarla por pantalla de momento relanzo
+            throw new Exception(ex.Message);
+        }
+
+    }
+
+}

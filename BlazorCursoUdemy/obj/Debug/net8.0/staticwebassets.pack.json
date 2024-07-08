@@ -1,0 +1,61 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorCursoUdemy\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorCursoUdemy\\obj\\Debug\\net8.0\\compressed\\1k8hbpsgxa.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorCursoUdemy\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorCursoUdemy.styles.css",
+      "PackagePath": "staticwebassets\\BlazorCursoUdemy.styles.css"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorCursoUdemy\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorCursoUdemy\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorCursoUdemy\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorCursoUdemy\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorCursoUdemy\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorCursoUdemy\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorCursoUdemy\\wwwroot\\sample-data\\weather.json",
+      "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BlazorCursoUdemy.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BlazorCursoUdemy.props",
+      "PackagePath": "build\\BlazorCursoUdemy.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BlazorCursoUdemy.props",
+      "PackagePath": "buildMultiTargeting\\BlazorCursoUdemy.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BlazorCursoUdemy.props",
+      "PackagePath": "buildTransitive\\BlazorCursoUdemy.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

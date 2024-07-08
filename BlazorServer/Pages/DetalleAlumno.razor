@@ -1,0 +1,30 @@
+﻿@page "/DetalleAlumno/{id}"
+@inherits DetalleAlumnoBase
+
+<div class="row justify-content-center m-3">    
+    @{var isBaja = alumno.FechaBaja != null;}
+
+    <div class="col-sm-8">
+        <div class="card">
+            
+            <div class="card-header">
+                <h1>@alumno.Nombre</h1>
+            </div>
+
+            <div class="card-body text-center @(isBaja ? "card-baja" : "")">
+                <img class="card-img-top" src="@alumno.Foto" />
+                <h4>Alumno Id: @alumno.Id</h4>
+                <h4>Email: @alumno.Email</h4>
+                <h4>Fecha Alta: @alumno.FechaAlta</h4>
+                <h4>Fecha Baja: @alumno.FechaBaja</h4>
+            </div>
+            <div class="card-footer text-center">
+                <a href="/ListaAlumnos")" class="btn btn-primary">Volver</a>
+                <a href="#" class="btn btn-primary m-1">Editar</a>
+                <a href="#" class="btn btn-danger m-1" style="@(isBaja ? "display:none;":"")">Borrar</a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+}

@@ -1,0 +1,71 @@
+﻿@page "/listaCursos"
+@using BlazorServer.Servicios;
+@using ModeloClasesAlumnos;
+
+@inject IServicioCurso ServicioCurso
+
+<h3>ListaCursos</h3>
+
+<div class="form-group row">
+    <div class="col-sm-10">
+        <a href="/NuevoCurso" class="btn btn-primary m-1">Nuevo Curso</a>
+    </div>
+</div>
+
+@if (listaCursos == null)
+{
+    <div class="spinner"></div>
+}
+else if (listaCursos.Count == 0)
+{
+    <p class="text-danger">No hay cursos disponibles</p>
+}
+else
+{
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre Curso</th>
+                <th>Coste</th>
+                <th>FechaInicio Precio</th>
+                <th>FechaFin Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Curso c in listaCursos)
+            {
+                foreach (Precio p in c.ListaPrecios)
+                {
+                    <tr>
+                        <td>@c.NombreCurso</td>
+                        <td>$ @p.Coste</td>
+                        <td>@p.FechaInicio.ToString("dd/MM/yyyy")</td>
+                        <td>@p.FechaFin.ToString("dd/MM/yyyy")</td>
+                        <td><input href="@($"ModificarCurso/{c.Id}")" type="submit" class="btn btn-primary" value="Modificar" /></td>
+                        <td><button class="btn btn-danger m-1">Eliminar</button></td>
+                    </tr>
+                 }
+            }
+        </tbody>
+    </table>
+}
+
+
+@code
+{
+    public List<Curso> listaCursos { get; set; } = new List<Curso>();  
+
+    // pasando -1 nos devuelve todos los cursos
+    protected override async Task OnInitializedAsync()
+    {
+        listaCursos = (await ServicioCurso.ObtenerCursos(-1)).ToList();
+    }
+
+}
+
+
+
+
+

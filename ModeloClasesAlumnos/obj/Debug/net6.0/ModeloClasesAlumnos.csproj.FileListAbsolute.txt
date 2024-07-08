@@ -1,0 +1,11 @@
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\ModeloClasesAlumnos\bin\Debug\net6.0\ModeloClasesAlumnos.deps.json
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\ModeloClasesAlumnos\bin\Debug\net6.0\ModeloClasesAlumnos.dll
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\ModeloClasesAlumnos\bin\Debug\net6.0\ModeloClasesAlumnos.pdb
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\ModeloClasesAlumnos\obj\Debug\net6.0\ModeloClasesAlumnos.GeneratedMSBuildEditorConfig.editorconfig
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\ModeloClasesAlumnos\obj\Debug\net6.0\ModeloClasesAlumnos.AssemblyInfoInputs.cache
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\ModeloClasesAlumnos\obj\Debug\net6.0\ModeloClasesAlumnos.AssemblyInfo.cs
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\ModeloClasesAlumnos\obj\Debug\net6.0\ModeloClasesAlumnos.csproj.CoreCompileInputs.cache
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\ModeloClasesAlumnos\obj\Debug\net6.0\ModeloClasesAlumnos.dll
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\ModeloClasesAlumnos\obj\Debug\net6.0\refint\ModeloClasesAlumnos.dll
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\ModeloClasesAlumnos\obj\Debug\net6.0\ModeloClasesAlumnos.pdb
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\ModeloClasesAlumnos\obj\Debug\net6.0\ref\ModeloClasesAlumnos.dll

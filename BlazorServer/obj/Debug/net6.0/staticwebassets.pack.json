@@ -1,0 +1,109 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BlazorServer.bundle.scp.css",
+      "PackagePath": "staticwebassets\\BlazorServer.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\wwwroot\\css\\open-iconic\\README.md",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\wwwroot\\images\\59a0c215-3495-41e2-a73d-ad818a121f2a.jpg",
+      "PackagePath": "staticwebassets\\images\\59a0c215-3495-41e2-a73d-ad818a121f2a.jpg"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\wwwroot\\images\\Alumno1.jpg",
+      "PackagePath": "staticwebassets\\images\\Alumno1.jpg"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\wwwroot\\images\\Alumno2.jpg",
+      "PackagePath": "staticwebassets\\images\\Alumno2.jpg"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\wwwroot\\images\\Alumno3.jpg",
+      "PackagePath": "staticwebassets\\images\\Alumno3.jpg"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\wwwroot\\images\\ChicaCodigo.jpg",
+      "PackagePath": "staticwebassets\\images\\ChicaCodigo.jpg"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\wwwroot\\images\\ChicaCodigo65.jpg",
+      "PackagePath": "staticwebassets\\images\\ChicaCodigo65.jpg"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\wwwroot\\images\\d3acef8c-2729-4f43-ae4d-9060ce858210.jpg",
+      "PackagePath": "staticwebassets\\images\\d3acef8c-2729-4f43-ae4d-9060ce858210.jpg"
+    },
+    {
+      "Id": "D:\\ProyectosASPNET\\Udemy\\Blazor\\BlazorCursoUdemy\\BlazorServer\\wwwroot\\images\\ffcfb708-6c42-4bcb-b210-426effc59846.jpg",
+      "PackagePath": "staticwebassets\\images\\ffcfb708-6c42-4bcb-b210-426effc59846.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.BlazorServer.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.BlazorServer.props",
+      "PackagePath": "build\\BlazorServer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.BlazorServer.props",
+      "PackagePath": "buildMultiTargeting\\BlazorServer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.BlazorServer.props",
+      "PackagePath": "buildTransitive\\BlazorServer.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

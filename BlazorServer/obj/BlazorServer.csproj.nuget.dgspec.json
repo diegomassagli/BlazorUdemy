@@ -58,6 +58,18 @@
               "target": "Package",
               "version": "[0.2.0, )"
             },
+            "CurrieTechnologies.Razor.SweetAlert2": {
+              "target": "Package",
+              "version": "[5.6.0, )"
+            },
+            "NLog.Extensions.Logging": {
+              "target": "Package",
+              "version": "[5.3.11, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[5.3.11, )"
+            },
             "System.Net.Http.Json": {
               "target": "Package",
               "version": "[9.0.0-preview.5.24306.7, )"

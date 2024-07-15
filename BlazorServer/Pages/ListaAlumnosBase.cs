@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
+
 using System.Linq;
 using System.Threading.Tasks;
 using ModeloClasesAlumnos;
 using System.ComponentModel.DataAnnotations;
 using BlazorServer.Servicios;
+using CurrieTechnologies.Razor.SweetAlert2;
 
 
 namespace BlazorServer.Pages
@@ -18,6 +20,9 @@ namespace BlazorServer.Pages
         [Inject]
         public NavigationManager navigationManager { get; set; }
 
+        [Inject]
+        public SweetAlertService Swal { get; set; }
+
         public IEnumerable<Alumno> Alumnos { get; set; }
         public bool MostrarPopPup = false;
         public int idAlumnoBorrar = -1;
@@ -28,11 +33,24 @@ namespace BlazorServer.Pages
             Alumnos = (await ServicioAlumnos.ObtenerAlumnos()).ToList();
         }
         
-        protected void Borrar(int idAlumno, string nombreAlumno)
+        protected async Task Borrar(int idAlumno, string nombreAlumno)
         {
-            idAlumnoBorrar = idAlumno;
-            nombreAlumnoBorrar = nombreAlumno;
-            MostrarPopPup = true;
+            //idAlumnoBorrar = idAlumno;
+            //nombreAlumnoBorrar = nombreAlumno;
+            //MostrarPopPup = true;
+            var respuesta = await Swal.FireAsync(new SweetAlertOptions
+            {
+                Title = "Confirmacion",
+                Text = "Desea eliminar ?",
+                Icon = SweetAlertIcon.Warning,
+                ShowCancelButton = true,
+                ConfirmButtonText = "Si ok",
+                CancelButtonText = "No, mejor no..."
+            });
+            if (!string.IsNullOrEmpty(respuesta.Value))
+            {
+                DarDeBaja(idAlumno);
+            }
         }
 
         protected void CerrarPop()

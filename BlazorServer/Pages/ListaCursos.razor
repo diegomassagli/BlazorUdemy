@@ -3,6 +3,8 @@
 @using ModeloClasesAlumnos;
 
 @inject IServicioCurso ServicioCurso
+@inject NavigationManager navigationManager
+@inject SweetAlertService Swal
 
 <h3>ListaCursos</h3>
 
@@ -22,8 +24,6 @@ else if (listaCursos.Count == 0)
 }
 else
 {
-
-
     <table class="table">
         <thead>
             <tr>
@@ -43,8 +43,8 @@ else
                         <td>$ @p.Coste</td>
                         <td>@p.FechaInicio.ToString("dd/MM/yyyy")</td>
                         <td>@p.FechaFin.ToString("dd/MM/yyyy")</td>
-                        <td><input href="@($"ModificarCurso/{c.Id}")" type="submit" class="btn btn-primary" value="Modificar" /></td>
-                        <td><button class="btn btn-danger m-1">Eliminar</button></td>
+                        <td><a href="@($"ModificarCurso/{c.Id}/{p.Id}")" class="btn btn-primary m-1">Modificar</a></td>
+                        <td><input type="submit" class="btn btn-danger m-1" value="Eliminar" @onclick="( ()=>Borrar(c.Id))" /></td>
                     </tr>
                  }
             }
@@ -52,16 +52,83 @@ else
     </table>
 }
 
+@* @if (MostrarPopUp)
+{
+    <div class="modal" tabindex="-1" style="display:block" role="dialog">
+        <div class="modal-dialog ">
+            <div class="modal-content ">
+                <div class="modal-header bg-light">
+                    <h3 class="text-danger">Dar de baja curso</h3>
+                    <button type="button" class="close"
+                            @onclick="CerrarPop">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+
+                <div class="modal-body bg-light">
+                    <strong class="text-danger">Va dar de baja este curso.Si esta seguro continue.Si no cierre esta ventana.</strong>
+                    <br /><br />
+                    <button type="button" class="btn btn-danger"
+                            @onclick="(() => DarDeBaja(idCursoBorrar))">
+                        Dar de baja
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+} *@
+
 
 @code
 {
-    public List<Curso> listaCursos { get; set; } = new List<Curso>();  
+    public List<Curso> listaCursos { get; set; } = new List<Curso>();
+    public Boolean MostrarPopUp = false;
+    public int idCursoBorrar = -1;
 
     // pasando -1 nos devuelve todos los cursos
     protected override async Task OnInitializedAsync()
     {
         listaCursos = (await ServicioCurso.ObtenerCursos(-1)).ToList();
     }
+
+    protected async Task Borrar(int curso)
+    {
+        var respuesta = await Swal.FireAsync(new SweetAlertOptions
+            {
+                Title = "Confirmacion",
+                Text = "Desea eliminar ?",
+                Icon = SweetAlertIcon.Warning,
+                ShowCancelButton = true,
+                ConfirmButtonText = "Si ok",
+                CancelButtonText = "No, mejor no..."
+            });
+        if (!string.IsNullOrEmpty(respuesta.Value))
+        {
+            DarDeBaja(curso);
+        }
+        // idCursoBorrar = curso;
+        // MostrarPopUp = true;
+    }
+
+    protected void CerrarPop()
+    {
+        MostrarPopUp = false;
+    }
+
+    protected async void DarDeBaja (int idCursoBorrar)
+    {
+        try
+        {
+            await ServicioCurso.BorrarCurso(idCursoBorrar);
+            CerrarPop();
+            navigationManager.NavigateTo("listacursos", true);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+    }
+
 
 }
 

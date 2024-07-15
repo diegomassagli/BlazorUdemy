@@ -26,5 +26,7 @@ namespace ModeloClasesAlumnos
         public DateTime? FechaAlta { get; set; }
         
         public DateTime? FechaBaja { get; set; }
+
+        public Error error { get; set; }
     }
 }

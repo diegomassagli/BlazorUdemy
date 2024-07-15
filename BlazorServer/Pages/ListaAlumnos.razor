@@ -1,6 +1,7 @@
 ﻿@page "/listaAlumnos"
 @inherits ListaAlumnosBase
 
+
 <h3>ListaAlumnos</h3>
 
 <div class="form-group row">
@@ -36,7 +37,7 @@ else
         }
     </div>
 
-    <div class="modal @(MostrarPopPup ? "mostrarPopPup" : "ocultarPopPup")" tabindex="-1" role="dialog">
+@*     <div class="modal @(MostrarPopPup ? "mostrarPopPup" : "ocultarPopPup")" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-warning">
@@ -53,7 +54,7 @@ else
                 </div>
             </div>
         </div>
-    </div>
+    </div> *@
 
 }
 

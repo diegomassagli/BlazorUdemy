@@ -39,3 +39,17 @@ D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\bin\Debug\net6.0\S
 D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\bin\Debug\net6.0\System.Text.Json.dll
 D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\bin\Debug\net6.0\BlazorInputFile.dll
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\obj\Debug\net6.0\BlazorServer.sourcelink.json
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\bin\Debug\net6.0\nlog.config
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\bin\Debug\net6.0\CurrieTechnologies.Razor.SweetAlert2.dll
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\bin\Debug\net6.0\Microsoft.AspNetCore.Authorization.dll
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\bin\Debug\net6.0\Microsoft.AspNetCore.Components.dll
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Forms.dll
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Web.dll
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\bin\Debug\net6.0\Microsoft.AspNetCore.Metadata.dll
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\bin\Debug\net6.0\Microsoft.JSInterop.dll
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\bin\Debug\net6.0\NLog.dll
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\bin\Debug\net6.0\NLog.Extensions.Logging.dll
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\bin\Debug\net6.0\NLog.Web.AspNetCore.dll

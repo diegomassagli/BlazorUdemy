@@ -82,10 +82,11 @@ namespace APIAlumnos.Repositorio
                     alumnoBorrado = await ObtenerAlumno(Convert.ToInt32(reader["idalumno"]));
                 }
             }
-            catch (SqlException ex)
-            {
-                throw new Exception("Error borrando Alumno " + ex.Message);
-            }
+            // saca el catch para que se maneje en el controlador
+            //catch (SqlException ex)
+            //{
+            //    throw new Exception("Error borrando Alumno " + ex.Message);
+            //}
             finally
             {
                 if (reader != null)

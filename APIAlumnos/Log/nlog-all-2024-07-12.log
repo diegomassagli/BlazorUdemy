@@ -1,0 +1,7 @@
+2024-07-12 11:11:19.4968|ERROR|APIAlumnos.Controllers.CursosController|Se produjo un error en el controlador de Cursos, en el metodo BorrarCurso: Error borrando Curso Un curso con alumnos apuntados no puede borrarse
+2024-07-12 11:14:49.1048|ERROR|APIAlumnos.Controllers.CursosController|Se produjo un error en el controlador de Cursos, en el metodo BorrarCurso: System.Exception: Error borrando Curso Un curso con alumnos apuntados no puede borrarse
+   at APIAlumnos.Repositorio.RepositorioCursos.BorrarCurso(Int32 id) in D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\APIAlumnos\Repositorio\RepositorioCursos.cs:line 96
+   at APIAlumnos.Controllers.CursosController.BorrarCurso(Int32 id) in D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\APIAlumnos\Controllers\CursosController.cs:line 159
+2024-07-12 11:42:41.8743|ERROR|APIAlumnos.Controllers.CursosController|Se produjo un error en el controlador de Cursos, en el metodo BorrarCurso: System.Exception: Error borrando Curso Un curso con alumnos apuntados no puede borrarse
+   at APIAlumnos.Repositorio.RepositorioCursos.BorrarCurso(Int32 id) in D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\APIAlumnos\Repositorio\RepositorioCursos.cs:line 96
+   at APIAlumnos.Controllers.CursosController.BorrarCurso(Int32 id) in D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\APIAlumnos\Controllers\CursosController.cs:line 163

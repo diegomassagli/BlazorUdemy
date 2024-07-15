@@ -149,3 +149,7 @@ D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\APIAlumnos\obj\Debug\net8.0\ref
 D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\APIAlumnos\obj\Debug\net8.0\APIAlumnos.pdb
 D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\APIAlumnos\obj\Debug\net8.0\APIAlumnos.genruntimeconfig.cache
 D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\APIAlumnos\obj\Debug\net8.0\ref\APIAlumnos.dll
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\APIAlumnos\obj\Debug\net8.0\APIAlumnos.sourcelink.json
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\APIAlumnos\bin\Debug\net8.0\NLog.dll
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\APIAlumnos\bin\Debug\net8.0\NLog.Extensions.Logging.dll
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\APIAlumnos\bin\Debug\net8.0\NLog.Web.AspNetCore.dll

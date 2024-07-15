@@ -1,4 +1,4 @@
-﻿@page "/ModificarCurso/{id:int}"
+﻿@page "/ModificarCurso/{idCurso:int}/{idPrecio:int}"
 @using BlazorServer.Servicios;
 @using ModeloClasesAlumnos;
 @inject IServicioCurso ServicioCurso
@@ -53,61 +53,141 @@
     </div>
 </EditForm>
 
-
-
-
-    <div class="row content mb-5">
-        <div class="col-md-1"><input type="submit" class="btn btn-primary" value="Guardar" @onclick="Guardar" /></div>
-        <div class="col-md-2">
-            <input type="button" value="Cancelar" class="btn btn-danger" @onclick="Cancelar" />
-        </div>
+<div class="row content mb-5">
+    <div class="col-md-1">
+        <input type="submit" class="btn btn-primary" value="Guardar" @onclick="Modificar" />
     </div>
+    <div class="col-md-2">
+        <input type="button" value="Cancelar" class="btn btn-danger" @onclick="Cancelar" />
+    </div>
+</div>
+
+<hr />
+
+<div>
+    <button class="oi oi-plus" type="submit" @onclick="MostrarNuevoPrecio"></button>
+    <strong>Agregar Precio</strong>
+</div>
+
+@if(mostrarPrecio)
+{
+    <EditForm Model="@nuevoPrecio" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="form-group row">
+            <label for="Coste" class="col-sm-2 col-form-label">Precio</label>
+            <div class="col-sm-10">
+                <InputNumber id="coste" ParsingErrorMessage="Debe introducir un coste" class="form-control" 
+                    @bind-Value="nuevoPrecio.Coste" />
+                <ValidationMessage For="@( ()=> nuevoPrecio.Coste)" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="FechaInicio" class="col-sm-2 col-form-label">Fecha Inicio:</label>
+            <div class="col-sm-10">
+                <InputDate id="FechaInicio" ParsingErrorMessage="Debe seleccionar una Fecha" class="form-control"
+                             @bind-Value="nuevoPrecio.FechaInicio" />
+                <ValidationMessage For="@( ()=> nuevoPrecio.FechaInicio)" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="FechaFin" class="col-sm-2 col-form-label">Fecha Fin:</label>
+            <div class="col-sm-10">
+                <InputDate id="FechaFin" ParsingErrorMessage="Debe seleccionar una Fecha" class="form-control"
+                           @bind-Value="nuevoPrecio.FechaFin" />
+                <ValidationMessage For="@( ()=> nuevoPrecio.FechaFin)" />
+            </div>
+        </div>
+
+        <div class="row content mb-5">
+            <div class="col-md-2">
+                <input type="submit" class="btn btn-info" value="Agregar" @onclick="GuardarPrecio" />
+            </div>
+            <div class="col-md-2">
+                <input type="button" class="btn btn-dark" value="Cancelar" @onclick="MostrarNuevoPrecio" />
+            </div>
+
+        </div>
+
+    </EditForm>
+}
+
 
 @code
 {
-        [Parameter]
-        public int id { get; set; }   // indicamos que vamos a recibir un parametro "id" tal como esta indicado en @page
+    [Parameter]
+    public int idCurso { get; set; }   // indicamos que vamos a recibir un parametro "id" tal como esta indicado en @page
+    [Parameter]
+    public int idPrecio { get; set; }
 
-        Curso curso = new Curso();
-        Precio precio = new Precio();
+    Curso curso = new Curso();
+    Precio precio = new Precio();
+    Precio nuevoPrecio = new Precio();
+    Boolean mostrarPrecio = false;
 
-        public void HandleValidSubmit()
+    public void HandleValidSubmit()
+    {
+        Console.WriteLine("OnValidSubmit");
+    }
+
+    protected async Task Modificar()
+    {
+        try
         {
-            Console.WriteLine("OnValidSubmit");
-        }
-
-        protected async Task Guardar()
-        {
-            try
+            if (curso.NombreCurso!=String.Empty &&
+                precio.Coste>=0 && precio.FechaInicio!=null &&
+                precio.FechaFin!=null)
             {
-                if (curso.NombreCurso!=String.Empty &&
-                    precio.Coste>=0 && precio.FechaInicio!=null &&
-                    precio.FechaFin!=null)
-                {
-                    curso.ListaPrecios = new List<Precio>();
-                    curso.ListaPrecios.Add(precio);
-                    await ServicioCurso.AltaCurso(curso);
-                    navigationManager.NavigateTo("/ListaCursos");
-                }
+                curso.ListaPrecios[0] = precio;
+                curso = await ServicioCurso.ModificarCurso(idCurso, curso);
+                navigationManager.NavigateTo("/ListaCursos");
             }
-            catch(Exception ex)
-            {
-                // Guardamos excepcion en log y mostramos por pantalla
-                throw new Exception(ex.Message);
-            }
-
         }
-
-        protected void Cancelar()
+        catch(Exception ex)
         {
-            navigationManager.NavigateTo("/ListaCursos");
+            // Guardamos excepcion en log y mostramos por pantalla
+            throw new Exception(ex.Message);
         }
+
+    }
+
+    protected void Cancelar()
+    {
+        navigationManager.NavigateTo("/ListaCursos");
+    }
+
+    protected void MostrarNuevoPrecio()
+    {
+        mostrarPrecio = !mostrarPrecio;
+    }
+
+    protected async void GuardarPrecio()
+    {
+        if (nuevoPrecio.Coste >= 0 && nuevoPrecio.FechaInicio != null &&
+            nuevoPrecio.FechaFin != null)
+        {
+            curso.ListaPrecios[0] = precio;   // aca estoy guardando el precio de arriba
+            curso.ListaPrecios.Add(nuevoPrecio); // aca agrego el nuevo precio
+
+            curso = await ServicioCurso.ModificarCurso(idCurso, curso);
+            navigationManager.NavigateTo("/listacursos");
+
+        }
+
+    }
 
     protected override async Task OnInitializedAsync()
     {
-        if (id > 0)
+        if (idCurso > 0)
         {
-            curso = await ServicioCurso.ObtenerCursos(id);  // si me pasaron un "id" cargo la informacion al comienzo
+            curso = await ServicioCurso.ObtenerCurso(idCurso, idPrecio);  // si me pasaron un "id" cargo la informacion al comienzo
+            precio = curso.ListaPrecios[0];
+
+            nuevoPrecio.Coste = 19.99;
+            nuevoPrecio.FechaInicio = DateTime.Now;
+            nuevoPrecio.FechaFin = DateTime.Now.AddMonths(1);
         }
     }
 

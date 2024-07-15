@@ -12,6 +12,9 @@ public interface IRepositorioCursos
     // devuelve los datos de un curso por id 
     Task<Curso> ObtenerCurso(int id);
 
+    // devuelve los datos de un curso con su precio buscado por Id
+    Task<Curso> ObtenerCurso(int id, int idPrecio);
+
     // devuelve los datos de un curso por nombre
     Task<Curso> ObtenerCurso(string nombreCurso);
     

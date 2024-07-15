@@ -9,3 +9,4 @@ D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\ModeloClasesAlumnos\obj\Debug\n
 D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\ModeloClasesAlumnos\obj\Debug\net6.0\refint\ModeloClasesAlumnos.dll
 D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\ModeloClasesAlumnos\obj\Debug\net6.0\ModeloClasesAlumnos.pdb
 D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\ModeloClasesAlumnos\obj\Debug\net6.0\ref\ModeloClasesAlumnos.dll
+D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\ModeloClasesAlumnos\obj\Debug\net6.0\ModeloClasesAlumnos.sourcelink.json

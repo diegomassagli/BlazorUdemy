@@ -1,0 +1,70 @@
+2024-07-15 11:41:57.1766|ERROR|Microsoft.AspNetCore.Components.Server.Circuits.CircuitHost|Unhandled exception in circuit 'ZcNAZybD5EP9cvHO4aT2itfOzTOeQO9C6AX4qaJEeEw'.|Microsoft.JSInterop.JSException: Could not find 'CurrieTechnologies.Razor.SweetAlert2.FireSettings' ('CurrieTechnologies' was undefined).
+Error: Could not find 'CurrieTechnologies.Razor.SweetAlert2.FireSettings' ('CurrieTechnologies' was undefined).
+    at https://localhost:7252/_framework/blazor.server.js:1:497
+    at Array.forEach (<anonymous>)
+    at i.findFunction (https://localhost:7252/_framework/blazor.server.js:1:465)
+    at E (https://localhost:7252/_framework/blazor.server.js:1:2606)
+    at https://localhost:7252/_framework/blazor.server.js:1:3494
+    at new Promise (<anonymous>)
+    at kt.beginInvokeJSFromDotNet (https://localhost:7252/_framework/blazor.server.js:1:3475)
+    at https://localhost:7252/_framework/blazor.server.js:1:72077
+    at Array.forEach (<anonymous>)
+    at kt._invokeClientMethod (https://localhost:7252/_framework/blazor.server.js:1:72063)
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at CurrieTechnologies.Razor.SweetAlert2.SweetAlertService.FireAsync(SweetAlertOptions settings)
+   at BlazorServer.Pages.ListaCursos.Borrar(Int32 curso) in D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\Pages\ListaCursos.razor:line 96
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2024-07-15 11:46:56.9147|ERROR|Microsoft.AspNetCore.Components.Server.Circuits.CircuitHost|Unhandled exception in circuit 'Rw5Q_XYVpCKLnj7O9PlYBLpK-R6ax4Nko6LMDytPmX0'.|Microsoft.JSInterop.JSException: Could not find 'CurrieTechnologies.Razor.SweetAlert2.FireSettings' ('CurrieTechnologies' was undefined).
+Error: Could not find 'CurrieTechnologies.Razor.SweetAlert2.FireSettings' ('CurrieTechnologies' was undefined).
+    at https://localhost:7252/_framework/blazor.server.js:1:497
+    at Array.forEach (<anonymous>)
+    at i.findFunction (https://localhost:7252/_framework/blazor.server.js:1:465)
+    at E (https://localhost:7252/_framework/blazor.server.js:1:2606)
+    at https://localhost:7252/_framework/blazor.server.js:1:3494
+    at new Promise (<anonymous>)
+    at kt.beginInvokeJSFromDotNet (https://localhost:7252/_framework/blazor.server.js:1:3475)
+    at https://localhost:7252/_framework/blazor.server.js:1:72077
+    at Array.forEach (<anonymous>)
+    at kt._invokeClientMethod (https://localhost:7252/_framework/blazor.server.js:1:72063)
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at CurrieTechnologies.Razor.SweetAlert2.SweetAlertService.FireAsync(SweetAlertOptions settings)
+   at BlazorServer.Pages.ListaCursos.Borrar(Int32 curso) in D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\Pages\ListaCursos.razor:line 100
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2024-07-15 11:47:35.5718|ERROR|Microsoft.AspNetCore.Components.Server.Circuits.CircuitHost|Unhandled exception in circuit 'sD_ehH6CuDzJZDWIdi66lhDPl9Pe8BRCdM3z48gwk20'.|Microsoft.JSInterop.JSException: Could not find 'CurrieTechnologies.Razor.SweetAlert2.Fire' ('CurrieTechnologies' was undefined).
+Error: Could not find 'CurrieTechnologies.Razor.SweetAlert2.Fire' ('CurrieTechnologies' was undefined).
+    at https://localhost:7252/_framework/blazor.server.js:1:497
+    at Array.forEach (<anonymous>)
+    at i.findFunction (https://localhost:7252/_framework/blazor.server.js:1:465)
+    at E (https://localhost:7252/_framework/blazor.server.js:1:2606)
+    at https://localhost:7252/_framework/blazor.server.js:1:3494
+    at new Promise (<anonymous>)
+    at kt.beginInvokeJSFromDotNet (https://localhost:7252/_framework/blazor.server.js:1:3475)
+    at https://localhost:7252/_framework/blazor.server.js:1:72077
+    at Array.forEach (<anonymous>)
+    at kt._invokeClientMethod (https://localhost:7252/_framework/blazor.server.js:1:72063)
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at CurrieTechnologies.Razor.SweetAlert2.SweetAlertService.FireAsync(String title, String message, SweetAlertIcon icon)
+   at BlazorServer.Pages.ListaCursos.<BuildRenderTree>b__0_2() in D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\Pages\ListaCursos.razor:line 50
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2024-07-15 11:51:34.3444|ERROR|Microsoft.AspNetCore.Components.Server.Circuits.CircuitHost|Unhandled exception in circuit 'D0agVimTQ0-okfessToTDTPDMUctw7Fodb3xOncNthI'.|Microsoft.JSInterop.JSException: Could not find 'CurrieTechnologies.Razor.SweetAlert2.Fire' ('CurrieTechnologies' was undefined).
+Error: Could not find 'CurrieTechnologies.Razor.SweetAlert2.Fire' ('CurrieTechnologies' was undefined).
+    at https://localhost:7252/_framework/blazor.server.js:1:497
+    at Array.forEach (<anonymous>)
+    at i.findFunction (https://localhost:7252/_framework/blazor.server.js:1:465)
+    at E (https://localhost:7252/_framework/blazor.server.js:1:2606)
+    at https://localhost:7252/_framework/blazor.server.js:1:3494
+    at new Promise (<anonymous>)
+    at kt.beginInvokeJSFromDotNet (https://localhost:7252/_framework/blazor.server.js:1:3475)
+    at https://localhost:7252/_framework/blazor.server.js:1:72077
+    at Array.forEach (<anonymous>)
+    at kt._invokeClientMethod (https://localhost:7252/_framework/blazor.server.js:1:72063)
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at CurrieTechnologies.Razor.SweetAlert2.SweetAlertService.FireAsync(String title, String message, SweetAlertIcon icon)
+   at BlazorServer.Pages.ListaCursos.<BuildRenderTree>b__0_2() in D:\ProyectosASPNET\Udemy\Blazor\BlazorCursoUdemy\BlazorServer\Pages\ListaCursos.razor:line 50
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle, ComponentState owningComponentState)
+2024-07-15 12:31:58.1424|ERROR|BlazorServer.Servicios.ServicioCurso|Error borrando nuestro curso Not Found
+2024-07-15 12:35:02.4922|ERROR|BlazorServer.Servicios.ServicioCurso|Error borrando nuestro curso Not Found

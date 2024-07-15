@@ -15,5 +15,6 @@ namespace ModeloClasesAlumnos
         public string NombreCurso { get; set; }
 
         public List<Precio>? ListaPrecios { get; set; }
+        public Error error { get; set; }
     }
 }

@@ -91,10 +91,11 @@ namespace APIAlumnos.Repositorio
                 reader = await Comm.ExecuteReaderAsync();
                 return true;
             }
-            catch (SqlException ex)
-            {
-                throw new Exception("Error borrando Curso " + ex.Message);
-            }
+            // saca el catch para que se maneje en el controlador
+            //catch (SqlException ex)
+            //{
+            //    throw new Exception("Error borrando Curso " + ex.Message);
+            //}
             finally
             {
                 if (reader != null)
@@ -120,6 +121,61 @@ namespace APIAlumnos.Repositorio
                 Comm.CommandText = "dbo.CursoObtenerCursos";
                 Comm.CommandType = CommandType.StoredProcedure;
                 Comm.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                reader = await Comm.ExecuteReaderAsync();
+                while (reader.Read())
+                {
+                    if (curso == null)
+                    {
+                        curso = new Curso();
+                        curso.Id = Convert.ToInt32(reader["idCurso"]);
+                        curso.NombreCurso = reader["NombreCurso"].ToString();
+                        curso.ListaPrecios = new List<Precio>();
+                    }
+
+                    //Añadimos los posibles precios del curso
+                    Precio aux = new Precio();
+                    aux.Id = Convert.ToInt32(reader["idPrecio"]);
+                    aux.Coste = Convert.ToDouble(reader["Coste"]);
+                    aux.FechaInicio = Convert.ToDateTime(reader["FechaInicio"]);
+                    aux.FechaFin = Convert.ToDateTime(reader["FechaFin"]);
+
+                    curso.ListaPrecios.Add(aux);
+
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error cargando los datos de nuestro curso " + ex.Message);
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.Close();
+
+                Comm.Dispose();
+                sqlConexion.Close();
+                sqlConexion.Dispose();
+            }
+
+            return curso;
+        }
+
+        public async Task<Curso> ObtenerCurso(int id, int idprecio)
+        {
+            Curso curso = null;
+
+            SqlConnection sqlConexion = conexion();
+            SqlCommand Comm = null;
+            SqlDataReader reader = null;
+            try
+            {
+                sqlConexion.Open();
+                Comm = sqlConexion.CreateCommand();
+                Comm.CommandText = "dbo.CursoObtenerCursos";
+                Comm.CommandType = CommandType.StoredProcedure;
+                Comm.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                Comm.Parameters.Add("@idPrecio", SqlDbType.Int).Value = idprecio;
                 reader = await Comm.ExecuteReaderAsync();
                 while (reader.Read())
                 {
@@ -294,7 +350,8 @@ namespace APIAlumnos.Repositorio
                 {
                     Comm.Parameters.Clear();
                     Comm.Parameters.Add("@idCurso", System.Data.SqlDbType.Int).Value = curso.Id;
-                    Comm.Parameters.Add("@idPrecio", System.Data.SqlDbType.Int).Value = curso.ListaPrecios[cont].Id;
+                    if (curso.ListaPrecios[cont].Id>0)  // esto va como nulo cuando estoy creando un precio nuevo
+                        Comm.Parameters.Add("@idPrecio", System.Data.SqlDbType.Int).Value = curso.ListaPrecios[cont].Id;
                     Comm.Parameters.Add("@NombreCurso", System.Data.SqlDbType.VarChar, 500).Value = curso.NombreCurso;                    
                     Comm.Parameters.Add("@Coste", System.Data.SqlDbType.Float).Value = curso.ListaPrecios[cont].Coste;
                     Comm.Parameters.Add("@FechaInicio", System.Data.SqlDbType.DateTime).Value = curso.ListaPrecios[cont].FechaInicio;
